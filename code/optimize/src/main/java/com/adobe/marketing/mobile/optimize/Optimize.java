@@ -64,7 +64,9 @@ public class Optimize {
             @Nullable final Map<String, Object> xdm,
             @Nullable final Map<String, Object> data) {
 
+        final String telemetryOp = com.adobe.marketing.mobile.telemetrybridge.TelemetryBridge.operationStarted("com.adobe.optimize", "sdk.optimize.updatePropositions");
         updatePropositions(decisionScopes, xdm, data, null);
+        com.adobe.marketing.mobile.telemetrybridge.TelemetryBridge.operationCompleted(telemetryOp, "com.adobe.optimize", "sdk.optimize.updatePropositions", "invoked", "delegated without callback");
     }
 
     /**
